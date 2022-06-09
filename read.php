@@ -64,7 +64,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                         <label>Nombre del Servidor</label>
                         <p><b><?php echo $row["ip_name"]; ?></b></p>
                     </div>
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="index.php" class="btn btn-primary">Regresar</a></p>
                 </div>
             </div>
         </div>

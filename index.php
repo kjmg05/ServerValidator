@@ -1,3 +1,14 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
+                    <h1 class="my-5">Hola, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Bienvenido al sitio.</h1>
                         <h2 class="pull-left">Detalles de IP</h2>
                         <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Agregar nueva IP</a>
                     </div>
@@ -29,7 +41,7 @@
                     $headers = "From: kenia.gutierrez@farmavalue.biz";
                     $txt = "El servidor con numero de IP: ";
                     
-                    echo header("refresh: 300");
+                    //echo header("refresh: 300");
                     $sql = "SELECT * FROM ip";
                     if ($result = $mysqli->query($sql)) {
                         if ($result->num_rows > 0) {
@@ -54,7 +66,7 @@
                                     echo "<td style = color:green>Online</td>";
                                 } else {
                                     echo "<td style = color:red>Offline</td>";
-                                    mail($to, $subject, $txt . $row['ip_number'] . " se encuentra en estado Offline.", $headers);
+                                    //mail($to, $subject, $txt . $row['ip_number'] . " se encuentra en estado Offline.", $headers);
                                 }
                                 echo "<td>";
                                 echo '<a href="read.php?id=' . $row['id'] . '" class="mr-3" title="Visualizar" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
@@ -77,6 +89,7 @@
                     $mysqli->close();
                     ?>
                 </div>
+                <a href="logout.php" class="btn btn-danger ml-3"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>
             </div>
         </div>
     </div>
