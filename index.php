@@ -6,7 +6,7 @@ session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
-}
+} 
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $headers = "From: kenia.gutierrez@farmavalue.biz";
                     $txt = "El servidor con numero de IP: ";
                     
-                    //echo header("refresh: 300");
+                    echo header("refresh: 300");
                     $sql = "SELECT * FROM ip";
                     if ($result = $mysqli->query($sql)) {
                         if ($result->num_rows > 0) {
@@ -66,7 +66,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     echo "<td style = color:green>Online</td>";
                                 } else {
                                     echo "<td style = color:red>Offline</td>";
-                                    //mail($to, $subject, $txt . $row['ip_number'] . " se encuentra en estado Offline.", $headers);
+                                    mail($to, $subject, $txt . $row['ip_number'] . " se encuentra en estado Offline.", $headers);
                                 }
                                 echo "<td>";
                                 echo '<a href="read.php?id=' . $row['id'] . '" class="mr-3" title="Visualizar" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
