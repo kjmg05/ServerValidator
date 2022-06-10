@@ -37,7 +37,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $to = $all;
                     $subject = "Importante - Servidor no responde";
                     $headers = "From: kenia.gutierrez@farmavalue.biz";
-                    $txt = "El servidor con numero de IP: ";
+                    $txt = "Los servidore con numero de IP: ";
                     $ip_off = $all_ip_off = "";
                     
                     echo header("refresh: 300");
@@ -67,7 +67,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     echo "<td style = color:red>Offline</td>";
                                     $ip_off .= $row['ip_number'].", ";
                                     $all_ip_off = substr($ip_off, 0, -2);
-                                    //mail($to, $subject, $txt . $all_ip_off . " se encuentra en estado Offline.", $headers);
                                 }
                                 echo "<td>";
                                 echo '<a href="read.php?id=' . $row['id'] . '" class="mr-3" title="Visualizar" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
@@ -80,7 +79,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             echo "</table>";
 
                             mail($to, $subject, $txt . $all_ip_off . " se encuentra en estado Offline.", $headers);
-                            
+
                             $result->free();
                         } else {
                             echo '<div class="alert alert-danger"><em>No se encontraron registros.</em></div>';

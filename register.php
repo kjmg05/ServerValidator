@@ -51,7 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    $email = trim($_POST["email"]);
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Por favor, ingrese el correo electronico.";
+    } 
+    else {
+        $email = trim($_POST["email"]);
+    }
 
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err)) {
 
