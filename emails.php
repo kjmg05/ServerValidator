@@ -1,7 +1,7 @@
 <?php
     require_once "./config/config.php";
 
-    $sql = "SELECT email FROM emails";
+    $sql = "SELECT email FROM users";
     $all_emails = "";
 
     if ($result = $mysqli->query($sql)) {

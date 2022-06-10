@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->store_result();
 
                 if ($stmt->num_rows == 1) {
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                    $stmt->bind_result($id, $username, $hashed_password);
                     if ($stmt->fetch()) {
                         if (password_verify($password, $hashed_password)) {
                             session_start();
@@ -111,8 +111,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <!--<input type="submit" class="btn btn-primary btn-lg btn-block" value="Login">-->
                                 <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-primary" value="Entrar">
             </div>
+            <p>Deseas registrarte ahora? <a href="register.php">Registro</a>.</p>
                             </form>
                         </div>
                     </div>

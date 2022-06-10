@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+
 require_once "./config/config.php";
 $ip_number = $ip_name = "";
 $ip_number_err = $ip_name_err = "";

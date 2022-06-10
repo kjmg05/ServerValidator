@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 require_once "./config/config.php";
 $ip_number = $ip_name = "";
 $ip_number_err = $ip_name_err = "";
@@ -7,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $input_num = $_POST["ip_number"];
     if (empty($input_num)) {
         $ip_number_err = "Por favor, ingrese el numero IP";
-    } elseif (!filter_var($input_num, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z0-9.]+$/")))) {
+    } elseif (!filter_var($input_num, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z0-9._-]+$/")))) {
         $ip_number_err = "Por favor, ingrese el numero IP";
     } else {
         $ip_number = $input_num;

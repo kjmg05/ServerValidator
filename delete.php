@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+
 if (isset($_POST["id"]) && !empty($_POST["id"])) {
     require_once "./config/config.php";
 
@@ -64,4 +71,5 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         </div>
     </div>
 </body>
+
 </html>
