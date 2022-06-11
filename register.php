@@ -53,9 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty(trim($_POST["email"]))) {
         $email_err = "Por favor, ingrese el correo electronico.";
-    } elseif (!empty(trim($_POST["email"])) && filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL) === false) {
-        $email_err = "Por favor, ingrese el correo electronico.";
-    }
+    } 
     else {
         $email = trim($_POST["email"]);
     }

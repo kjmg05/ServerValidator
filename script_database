@@ -1,3 +1,4 @@
+
 CREATE SCHEMA IF NOT EXISTS `ipservers` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `ipservers` ;
 
@@ -8,7 +9,8 @@ CREATE TABLE IF NOT EXISTS `ipservers`.`ip` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `ip_number` VARCHAR(50) NOT NULL,
   `ip_name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`))
+  AUTO_INCREMENT = 1;
 
 
 -- -----------------------------------------------------
@@ -20,4 +22,15 @@ CREATE TABLE IF NOT EXISTS `ipservers`.`users` (
   `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`))
+  AUTO_INCREMENT = 1;
+
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('cadmusacademies.org',	'Cadmus Academies');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('clinicasdelahorro.com',	'Clinicas del Ahorro');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('farmavalue.biz',	'Farmavalue');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('adiuvopharma.com',	'Adiuvo Pharma');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('laboratorios.analisisclinicosdelahorro.com',	'Laboratorios Analisis Clinicos del Ahorro');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('www.morazan.city',	'Morazan City');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('www.analisisclinicoscr.com',	'Analisis Clinicos CR');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('www.farmaciasdelahorro.hn',	'Farmacias del Ahorro');
+INSERT INTO `ipservers`.`ip` (`ip_number`, `ip_name`) VALUES ('www.farmaciaregis.hn',	'Farmacia Regis');
