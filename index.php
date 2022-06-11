@@ -91,7 +91,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $mysqli->close();
                     ?>
                 </div>
-                <a href="logout.php" class="btn btn-danger ml-3"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>
+                <a href="logout.php" class="btn btn-danger ml-3 mb-5"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>
             </div>
         </div>
     </div>
